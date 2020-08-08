@@ -13,19 +13,29 @@ class CartItem extends React.Component{   //  its a class base component
   increaseQuantity=()=>{
         console.log('this.state',this.state);
        //setState() funtion inherit form React.component and help to update the value in state object
-       //setState form 1
-    //    this.setState({
-    //        Qty:this.state.Qty+1 // this process is called shallow merging
-    //    })
-
-       //setState form 2
-
-       this.setState((prevState)=>{
-           return {
-               Qty:prevState.Qty+1
-           }
-        })
       
+    //    setState form 1
+       this.setState({
+           Qty:this.state.Qty+1 // this process is called shallow merging
+       })
+
+    //    //setState form 2 - if previous state require this
+    //    this.setState((prevState)=>{
+    //        return {
+    //            Qty:prevState.Qty+1
+    //        }
+    //     })
+      
+    }
+    decreaseQuantity=()=>{
+          this.setState((prevState)=>{
+              if(prevState.Qty==0){
+                  return;
+              }
+              return{
+                  Qty:prevState.Qty-1
+              }
+          })
     }
     render(){
         const{price,title,Qty}=this.state;
@@ -51,6 +61,7 @@ class CartItem extends React.Component{   //  its a class base component
               alt="decrease" 
               className="action-icon" 
               src="https://image.flaticon.com/icons/svg/1828/1828906.svg" 
+              onClick={this.decreaseQuantity}
             />
             <img 
               alt="delete" 
