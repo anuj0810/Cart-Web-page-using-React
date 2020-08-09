@@ -1,15 +1,6 @@
 import React from 'react';
 class CartItem extends React.Component{   //  its a class base component
-    constructor(){
-        super()
-        this.state={
-            price: 1100,
-            title : 'Smart Phone',
-            Qty : 0
-
-        }
-        // this.increaseQuantity=this.increaseQuantity.bind(this); 
-    }
+    
   increaseQuantity=()=>{
         console.log('this.state',this.state);
        //setState() funtion inherit form React.component and help to update the value in state object
@@ -43,7 +34,7 @@ class CartItem extends React.Component{   //  its a class base component
         //     Qty:this.state.Qty+100
         // })
     
-        const{price,title,Qty}=this.state;
+        const{price,title,Qty}=this.props.product;
     return(
     
         <div className="cart-item">
