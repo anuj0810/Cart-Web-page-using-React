@@ -38,10 +38,10 @@ class CartItem extends React.Component{   //  its a class base component
           })
     }
     render(){
-        
-        this.setState({
-            Qty:this.state.Qty+100
-        })
+        //whenever we try to call setState function inside the render code will give you stack overflow error
+        // this.setState({
+        //     Qty:this.state.Qty+100
+        // })
     
         const{price,title,Qty}=this.state;
     return(
