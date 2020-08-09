@@ -8,27 +8,31 @@ class App extends React.Component {
     super()
     this.state={
         products:[
-            {
+            {    
+               img:'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
                 price: 1100,
                 title : 'Watch',
                 Qty : 0,
                 id:1
             },
             {
+              img :'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80',
                 price: 11000,
                 title : 'Smart Phone',
                 Qty : 0,
                 id:2
             },
             {
+                img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80',
                 price: 50000,
                 title : 'Laptop',
                 Qty : 0,
                 id:3
             },
             {
+                img:'https://images.unsplash.com/photo-1481207801830-97f0f9a1337e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
                 price: 500,
-                title : 'Earphone',
+                title : 'Headphone',
                 Qty : 0,
                 id:4
             },
@@ -74,6 +78,16 @@ let count=0;
    })
 return count;
  } 
+
+ getCartTotal =()=>{
+  const {products} = this.state;
+  let total=0;
+  products.forEach((product)=>{
+    total += product.Qty*product.price;
+  })
+  return total;
+
+ }
   
   /// this is function based component
   render(){
@@ -91,7 +105,7 @@ return count;
       onDecreaseQuantity={this.decreaseQuantity}
       onDeleteItem={this.deleteItem}
       />
-          
+      <div style={{padding:10,fontSize:25,marginBottom:50,marginLeft:80}}>TOTAL : {this.getCartTotal()}</div> 
     </div>
   );
 }
