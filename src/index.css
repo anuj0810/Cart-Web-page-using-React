@@ -1,5 +1,5 @@
 body {
-
+margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -8,6 +8,14 @@ body {
 }
 
 
+.navBar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70px;
+  background-color: rgb(80, 80, 184);
+  
+}
 .cart-item{
   display:inline-flex;
   margin: 30px 20px

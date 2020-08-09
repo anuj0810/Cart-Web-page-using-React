@@ -1,14 +1,14 @@
 import React from 'react';
-class CartItem extends React.Component{   //  its a class base component
+ const CartItem=(props)=>{   //  its a class base component
     
-  increaseQuantity=()=>{
-        console.log('this.state',this.state);
-       //setState() funtion inherit form React.component and help to update the value in state object
+//   increaseQuantity=()=>{
+//         console.log('this.state',this.state);
+//        //setState() funtion inherit form React.component and help to update the value in state object
       
-    //    setState form 1
-       this.setState({
-           Qty:this.state.Qty+1 // this process is called shallow merging
-       })
+//     //    setState form 1
+//        this.setState({
+//            Qty:this.state.Qty+1 // this process is called shallow merging
+//        })
 
     //    //setState form 2 - if previous state require this
     //    this.setState((prevState)=>{
@@ -17,30 +17,30 @@ class CartItem extends React.Component{   //  its a class base component
     //        }
     //     })
       
-    }
-    decreaseQuantity=()=>{
-          this.setState((prevState)=>{
-              if(prevState.Qty==0){
-                  return;
-              }
-              return{
-                  Qty:prevState.Qty-1
-              }
-          })
-    }
-    render(){
+    // }
+    // decreaseQuantity=()=>{
+    //       this.setState((prevState)=>{
+    //           if(prevState.Qty==0){
+    //               return;
+    //           }
+    //           return{
+    //               Qty:prevState.Qty-1
+    //           }
+    //       })
+    // }
+    // render(){
         //whenever we try to call setState function inside the render code will give you stack overflow error
         // this.setState({
         //     Qty:this.state.Qty+100
         // })
     
-        const{price,title,Qty}=this.props.product;
+        const{price,title,Qty}=props.product;
         const{
             product,
             increaseQuantity,
             decreaseQuantity,
             deleteItem
-        }=this.props;
+        }=props;
     return(
     
         <div className="cart-item">
@@ -48,7 +48,7 @@ class CartItem extends React.Component{   //  its a class base component
         <img style={styles.image}/>
         </div>
         <div className="right-block">
-            <div style={{color:'blue',fontSize:35}}>{title}</div>
+            <div style={{fontSize:35}}>{title}</div>
             <div  style={{color:'#777'}}>Rs: {price}</div>
             <div style={{color:'#777'}}>Qty: {Qty}</div>
             <div className="cart-item-action">
@@ -78,7 +78,7 @@ class CartItem extends React.Component{   //  its a class base component
 
     );
 }
-}
+// }
  const styles = {
      image:{
          height:150,
